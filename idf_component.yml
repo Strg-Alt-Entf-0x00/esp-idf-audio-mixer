@@ -1,0 +1,8 @@
+version: "1.0.0"
+description: "Universal multi-channel audio mixer with priority ducking, soft fading, and per-channel volume control for ESP-IDF"
+license: "PolyForm-Noncommercial-1.0.0"
+dependencies:
+  idf:
+    version: ">=5.0.0"
+
+

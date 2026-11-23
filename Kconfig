@@ -1,0 +1,46 @@
+menu "Audio Mixer Configuration"
+
+    config AUDIO_MIXER_MAX_CHANNELS
+        int "Maximum number of mixer channels"
+        default 8
+        range 2 16
+        help
+            Maximum number of audio channels that can be registered concurrently.
+
+    config AUDIO_MIXER_FRAME_SAMPLES
+        int "Audio frame size in samples"
+        default 160
+        range 32 1024
+        help
+            Number of samples processed per mixer cycle (e.g. 160 samples = 10ms at 16kHz).
+
+    config AUDIO_MIXER_DEFAULT_RINGBUF_SAMPLES
+        int "Default channel ringbuffer size in samples"
+        default 4096
+        range 512 32768
+        help
+            Default ringbuffer size per channel in samples (e.g. 4096 samples = 256ms at 16kHz).
+
+    config AUDIO_MIXER_TASK_PRIORITY
+        int "Mixer task FreeRTOS priority"
+        default 22
+        range 1 25
+        help
+            Priority of the audio mixer worker task.
+
+    config AUDIO_MIXER_TASK_CORE_ID
+        int "Mixer task CPU affinity"
+        default 1
+        range 0 1
+        help
+            Core ID to run the audio mixer task on (ESP32 dual-core).
+
+    config AUDIO_MIXER_TASK_STACK_SIZE
+        int "Mixer task stack size in bytes"
+        default 4096
+        range 2048 16384
+        help
+            Stack size allocated for the audio mixer task.
+
+endmenu
+
